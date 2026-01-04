@@ -1,0 +1,28 @@
+{
+  "name": "Github Copilot CLI Project",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/workspace",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers/features/rust:1": {}
+  },
+  "mounts": [
+    {
+      "type": "bind",
+      "source": "${localWorkspaceFolder}",
+      "target": "${containerWorkspaceFolder}"
+    }
+  ],
+  "postCreateCommand": "npm install -g @github/copilot && npx cc-sdd@latest --copilot --lang ja && gh auth login",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rust-lang.rust-analyzer",
+        "vadimcn.vscode-lldb",
+        "tauri-apps.tauri-vscode"
+      ]
+    }
+  }
+}
