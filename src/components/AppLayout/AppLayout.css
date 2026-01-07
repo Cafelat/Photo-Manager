@@ -1,0 +1,229 @@
+.app-layout {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #f8f9fa;
+  overflow: hidden;
+}
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: white;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+.app-header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.app-photo-count {
+  padding: 0.25rem 0.75rem;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  font-size: 0.875rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.app-header-right {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.app-button {
+  padding: 0.625rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.app-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.app-button-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+.app-button-primary:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.app-button-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.app-button-secondary:hover:not(:disabled) {
+  background-color: #545b62;
+}
+
+.app-progress {
+  padding: 1rem 1.5rem;
+  background-color: #fff3cd;
+  border-bottom: 1px solid #ffc107;
+}
+
+.app-progress-bar {
+  width: 100%;
+  height: 8px;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.app-progress-fill {
+  height: 100%;
+  background-color: #ffc107;
+  transition: width 0.3s ease;
+}
+
+.app-progress-text {
+  font-size: 0.875rem;
+  color: #856404;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-error {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #f8d7da;
+  border-bottom: 1px solid #f5c2c7;
+  color: #842029;
+  font-size: 0.9375rem;
+}
+
+.app-error-close {
+  background: none;
+  border: none;
+  color: #842029;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.app-error-close:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.app-main {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.app-toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  z-index: 1001;
+  animation: slideIn 0.3s ease, slideOut 0.3s ease 2.7s;
+  animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
+.app-toast-success {
+  background-color: #d1e7dd;
+  color: #0f5132;
+  border: 1px solid #badbcc;
+}
+
+.app-toast-error {
+  background-color: #f8d7da;
+  color: #842029;
+  border: 1px solid #f5c2c7;
+}
+
+.app-toast-info {
+  background-color: #cff4fc;
+  color: #055160;
+  border: 1px solid #b6effb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0.75rem 1rem;
+  }
+
+  .app-title {
+    font-size: 1.25rem;
+  }
+
+  .app-header-left {
+    gap: 0.5rem;
+  }
+
+  .app-header-right {
+    gap: 0.5rem;
+  }
+
+  .app-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+
+  .app-toast {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+}
